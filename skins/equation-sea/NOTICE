@@ -7,12 +7,21 @@
 
 ## 背景图
 
-`assets/backdrop.jpg`、`assets/backdrop-light.jpg`、`assets/backdrop-parchment.jpg`
-以及 `preview/*.jpg` 中的背景部分，为**皮肤作者提供**的原画，经裁切、提亮、
-锐化与去色（亮色版）处理后在皮肤内使用。
+### 素材类别
 
-授权由素材提供者（即本皮肤作者）决定：随本皮肤在 dsh 皮肤目录内分发；
+**AI 生成**。`assets/backdrop.jpg`、`assets/backdrop-parchment.jpg` 以及
+`preview/*.jpg` 里的背景部分，由本皮肤作者使用出图工具（text-to-image）生成，
+再经裁切、提亮、锐化与去色（亮色版）处理后在皮肤内使用。背景图不包含
+任何第三方摄影作品、绘画或商标素材。
+
+### 分发范围
+
+随本皮肤在 dsh 皮肤目录内分发，供安装该皮肤的用户在宿主界面中作为背景显示。
 如需将该背景图用于其他用途（商用、二次创作、独立再分发），请先联系作者取得许可。
+
+### 免责
+
+本贡献的版权与合规责任由贡献者（Chenjiangwen）承担。
 
 ## 上游仓库
 

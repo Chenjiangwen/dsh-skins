@@ -2,10 +2,14 @@
  * 方程星海 / Equation Sea — a transparent DSH skin over a black-hole backdrop.
  *
  * 设计前提
- *   背景是纯黑星海（原画 79% 的像素是 #000，最亮处接近 255）。
+ *   背景是黑底星海（原画 74% 的像素比 #202020 更暗，吸积盘高光接近 255）。
  *   面板必须是半透明玻璃，否则背景看不见；但玻璃必须够厚，否则文字压不住。
- *   所有 alpha 都用 WCAG 相对亮度算过：在背景**最亮**的那块像素上，
- *   正文 ≥ 8.5:1、次要文字 ≥ 4.6:1，均高于 AA (4.5)。
+ *   所有 alpha 都用 WCAG 相对亮度算过，明细见 README「可读性」。
+ *   合成分两层：画布（bg-base，46%）先压一道，会话与面板（layer-1..4）
+ *   再叠在上面，所以文字背后不是生背景，而是 base+layer 的合成色。
+ *   结果：星海典型区域正文 ≥13.0:1；即使背景是最亮的镜面高光，
+ *   正文仍有 6.0:1。只有次要文字在最亮像素上会掉到 3.6:1，
+ *   由 patches.css 的文字投影与「背景遮挡」滑块兜底（滑块 20% 即回到 AA）。
  *
  *   --dsw-skin-scrim 是皮肤中心「背景遮挡」滑块的 0–1 值：
  *   scrim=0 背景最透，scrim=1 基本回到实心。默认值下的可读性由下面的
@@ -55,7 +59,7 @@
   --dsw-alias-label-primary: #3a2a1c;
   --dsw-alias-label-primary-bluish: #3a2a1c;
   --dsw-alias-label-primary-dimmed: #63482f;
-  --dsw-alias-label-primary-foreground: #3a2a1c;
+  --dsw-alias-label-primary-foreground: #ffffff;
   --dsw-alias-label-primary-inverted: #ffffff;
   --dsw-alias-label-secondary: #6b5741;
   --dsw-alias-label-tertiary: #8a7355;
@@ -65,10 +69,10 @@
   --dsw-alias-brand-primary: var(--eq-accent);
   --dsw-alias-brand-primary-invert: #ffffff;
   --dsw-alias-button-primary-fill: var(--eq-accent);
-  --dsw-alias-button-primary-hover: #24509f;
-  --dsw-alias-button-primary-dimmed: rgba(47, 99, 200, 0.18);
+  --dsw-alias-button-primary-hover: #7d2f21;
+  --dsw-alias-button-primary-dimmed: rgba(156, 59, 42, 0.20);
   --dsw-alias-button-info-fill: var(--eq-accent);
-  --dsw-alias-button-info-hover: #24509f;
+  --dsw-alias-button-info-hover: #7d2f21;
   --dsw-alias-button-floating-fill: rgba(255, 255, 255, 0.92);
   --dsw-alias-button-floating-hover: rgba(255, 255, 255, 1);
   --dsw-alias-button-elevated-fill: rgba(255, 255, 255, var(--eq-glass-3));
@@ -119,7 +123,7 @@ body[data-ds-dark-theme] {
   --dsw-alias-label-primary: #e9eef6;
   --dsw-alias-label-primary-bluish: #eaf0f9;
   --dsw-alias-label-primary-dimmed: #c8d2e0;
-  --dsw-alias-label-primary-foreground: #e9eef6;
+  --dsw-alias-label-primary-foreground: #06080c;
   --dsw-alias-label-primary-inverted: #06080c;
   --dsw-alias-label-secondary: #b0bac8;
   --dsw-alias-label-tertiary: #97a3b5;
